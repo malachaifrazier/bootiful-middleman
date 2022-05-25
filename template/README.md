@@ -6,7 +6,8 @@ This app is built with [Middleman].
 
 ## Prerequisites
 
-- Ruby 2.6.6 (confirm by running `ruby --version`)
+- Ruby 3.1.2 (confirm by running `ruby -v`)
+- NodeJS 17.0.1 (confirm by running `node -v`)
 
 ## Setup
 
