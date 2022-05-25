@@ -1,14 +1,19 @@
-# Middleman Template
+# Bootiful Middleman Template
 
-The base Middleman application used at [thoughtbot], ready to deploy
-to [Netlify].
+A Bootiful marraige between the base Middleman application used at [thoughtbot] and the clean Bootstrap 5 template from [Bootiful], ready to deploy to [Netlify].
 
-[thoughtbot]: https://thoughtbot.com/
-[Netlify]: https://www.netlify.com/
+[thoughtbot]: https://thoughtbot.com
+[Netlify]: https://www.netlify.com
+[Bootiful]: https://bootiful.org
+
+## Demo
+
+A fully clickable demo of the original bootiful template is available here : [bootiful.org/demo](https://bootiful.org/demo)
 
 ## Prerequisites
 
-- Ruby 2.6.6 (confirm by running `ruby --version`)
+- Ruby 3.1.2 (confirm by running `ruby -v`)
+- NodeJS 17.0.1 (confirm by running `node -v`)
 
 ## Usage
 
@@ -21,7 +26,7 @@ to [Netlify].
 1. Then run:
 
     ```
-    middleman init PROJECT_NAME --template=thoughtbot/middleman-template
+    middleman init PROJECT_NAME --template=malachaifrazier/bootiful-middleman
     ```
 
     This will create a new Middleman app in a `PROJECT_NAME` directory.
