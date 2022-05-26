@@ -1,0 +1,13 @@
+language: "en-us"
+name: "Site Name"
+url: "https://example.com"
+human_url: "example.com"
+title: "Bootiful Middleman"
+description: "Site Description"
+author: "<Your Name>"
+facebook_og_image_url: "path/to/image"
+SEO_keywords: "bootstrap"
+auth_pages:
+  - "Signup"
+  - "Login"
+  - "ForgotPassword"
