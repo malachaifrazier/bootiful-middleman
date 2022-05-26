@@ -1,10 +1,11 @@
-<%# {% set page_name = 'Home' %}
+{% set page_name = 'Home' %}
 {% set SEO_description = 'A free and open-source Bootstrap v5 template' %}
 {% set SEO_keywords = 'Bootstrap, SCSS, Gulp, JavaScript' %}
 {% set canonical_url = '/' %}
 
-{% extends "layouts/site.html" %} %>
+{% extends "layouts/site.html" %}
 
+{% block content %}
 <div class="container" style="max-width: 1140px;">
   <div id="hero" style="min-height:50vh" class="bg-white text-dark flex-center">
     <div class="container">
@@ -17,10 +18,10 @@
             </h1>
             <p class="mx-auto lead text-lg-nice">
               <span class="d-block">
-                Open-source, clean, modern Bootstrapv5 template and starter kit.
+                Open-source, clean, modern Bootstrap v5 template and starter kit.
               </span>
               <span class="d-block">
-                Deploy beautiful marketing pages with Bootstrap and Middleman.
+                Deploy instantly beautiful pages on top of standards Bootstrap components.
               </span>
             </p>
           </div>
@@ -309,5 +310,6 @@
       </div>
     </div>
   </div>
-  <%= partial "partials/bottom_cta" %>
+  {% include "partials/bottom_cta.html" %}
 </div>
+{% endblock %}

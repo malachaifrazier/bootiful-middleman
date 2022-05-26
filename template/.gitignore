@@ -6,3 +6,7 @@ build/
 netlifyctl-debug.log
 node_modules
 tmp
+package-lock.json
+.vscode
+docs/
+yarn.lock

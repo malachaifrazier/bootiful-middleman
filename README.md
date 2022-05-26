@@ -62,8 +62,7 @@ This template comes with the following features and tools:
 - [middleman-minify-html]: Minifies whitespace around HTML when the site is
   built.
 - [Sass]: CSS pre-processor.
-- [Bourbon]: Sass tool set.
-- [Bitters]: Scaffold styles, variables and structure.
+- [Bootstrap5]: Powerful, extensible, and feature-packed frontend toolkit.
 - [normalize.css]: Modern CSS "reset"
 - [Redcarpet]: Markdown processing.
 - [CircleCI]: Continuous integration.
@@ -76,8 +75,7 @@ This template comes with the following features and tools:
 [middleman-inline_svg]: https://github.com/thoughtbot/middleman-inline_svg/
 [middleman-minify-html]: https://github.com/middleman/middleman-minify-html
 [Sass]: https://github.com/sass/sass
-[Bourbon]: https://github.com/thoughtbot/bourbon
-[Bitters]: https://github.com/thoughtbot/bitters
+[Bootstrap5]: https://getbootstrap.com/docs/5.0/getting-started/download/
 [normalize.css]: https://github.com/necolas/normalize.css/
 [Redcarpet]: https://github.com/vmg/redcarpet
 [CircleCI]: https://circleci.com/

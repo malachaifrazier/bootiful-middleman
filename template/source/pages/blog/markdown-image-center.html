@@ -1,0 +1,192 @@
+{% set canonical_url = '/blog/markdown-image-center' %}
+{% set page_name = 'markdown image center' %}
+{% set SEO_description = 'markdown image center - How to center an image in your markdown' %}
+{% set SEO_keywords = 'Markdown, image, Bootstrap, NPM, JavaScript, NodeJS' %}
+{% extends "layouts/site.html" %}
+
+{% import "macros/articleMacro.njk" as articleMacro %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/rainbow.min.css" integrity="sha512-ohxc5OnaYpC+nn8t5pH3F9Fx4xjwE7bnFDN7qX3GWWIK70+ivPEYQejZQOV96YmurTP5IaqmxyFnXDIEHg7Vhw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+
+{% block content %}
+<main class="article">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col col-lg-8 mx-auto">
+        {{ articleMacro.article_header('Markdown, center the image', 'November 29, 2021', '4') }}
+        <div class="w-100">
+          <p>The goal of this article is to help you to center an image in your markdown file, for example when you use a README.md file at the root of your open-source project, that browser will actually display as HTML.</p>
+          <h2>
+            Bad news first
+          </h2>
+          <p>Markdown doesn't allow you to tweak alignment directly.</p>
+          <p>In fact, it would be against the Markdown principles to allow such formatting, as stated in the "Philosophy" section.</p>
+
+          <blockquote class="blockquote border-start ps-3 border-5" cite="https://daringfireball.net/projects/markdown/syntax#philosophy">
+            <p>A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.</p>
+            <figcaption> — John Gruber, <cite>The Daring Fireball Company LLC</cite></figcaption>
+          </blockquote>
+
+          <blockquote class="blockquote border-start ps-3 border-5" cite="https://daringfireball.net/projects/markdown/syntax#html">
+            <p>Markdown is not a replacement for HTML, or even close to it. Its syntax is very small, corresponding only to a very small subset of HTML tags. The idea is not to create a syntax that makes it easier to insert HTML tags.</p>
+            <figcaption> — John Gruber, <cite>The Daring Fireball Company LLC</cite></figcaption>
+          </blockquote>
+
+
+          <h2>
+             Classic picture insertion thanks to markdown
+          </h2>
+          <p>
+            This markdown code :
+            <pre><code class="language-bash">![](https://res.cloudinary.com/bdavidxyz-com/image/upload/v1637503750/bootstrap/admin_crudZ3.png)</code></pre>
+            Will produce the following output
+          </p>
+          <figure class="figure text-left">
+            <img width="600px" loading="lazy" src="https://res.cloudinary.com/bdavidxyz-com/image/upload/v1637503750/bootstrap/admin_crudZ3.png">
+            <figcaption class="figure-caption">Screenshot from Bootiful (figcaption not part of the generated markdown alas).</figcaption>
+          </figure>
+          <p>
+            Whereas this markdown code :
+            <pre><code class="language-bash">![A random screenshot](https://res.cloudinary.com/bdavidxyz-com/image/upload/v1637503750/bootstrap/admin_crudZ3.png)</code></pre>
+            Will produce the following output
+          </p>
+          <figure class="figure text-left">
+            <img width="600px" loading="lazy" src="https://res.cloudinary.com/bdavidxyz-com/image/upload/v1637503750/bootstrap/admin_crudZ3.png" alt="A random screenshot">
+            <figcaption class="figure-caption">Same screenshot as above (figcaption not part of the generated markdown alas).</figcaption>
+          </figure>
+          <p>
+            Visually no difference, but screen readers can read what the image is about, thanks to the "alt" attribute added.
+          </p>
+          <h2>
+            How to center the image with markdown
+          </h2>
+          <p>
+            You can't do this by <strong>only</strong> relying on Markdown syntax. Markdown doesn't care about positioning.
+          </p>
+          <p>
+            So you will have to use something else, and now the good news is that Markdown, in theory, supports plain HTML. In other words, HTML can be considered as Markdown language.
+          </p>
+          <p>
+            Be aware that there is no guarantee the picture will actually be centered if the document isn't read through a browser (Visual Studio Web Essentials Markdown preview, Sublime Text Markdown preview, and so on).
+          </p>
+          <p>
+            <strong>Dependending on you environment, one of the following solution could work</strong>
+          </p>
+
+
+          <h2>Solution 1 : HTML attributes with Markdown</h2>
+          <p>
+            You add extra brackets to the Markdown, and it will be transformed into attributes :
+            <pre>
+              <code class="language-markdown">
+![Picture](Picture.svg){ width="800" height="600" style="display: block; margin: 0 auto" }
+              </code>
+            </pre>
+          </p>  
+          <p>
+            Could be rendered like this :
+            <pre>
+              <code class="language-html">
+&lt;img src="Picture.svg" 
+        alt="Picture" 
+        width="800" 
+        height="600" 
+        style="display: block; margin: 0 auto" /&gt;
+              </code>
+            </pre>
+          </p>
+
+          <h2>Solution 2 : use the "align" deprecated attribute</h2>
+          <p>This is not recommended, but in some cases this is the only way to center the image. Insert this HTML snippet into your markdown file.</p>
+          <p>
+          <pre>
+              <code class="language-html">
+&lt;p align="center"&gt;
+    &lt;img src="..."&gt;
+&lt;/p&gt;
+              </code>
+            </pre>
+          </p>
+          <p>
+            You can also try to put the "align" attribute directly into the "img" tag.
+          </p>
+
+
+          <h2>Solution 3 : centering image using CSS where you have control over CSS styles</h2>
+          <h3 class="h5 mt-4">3.1 Apply to all images</h3>
+          <p>As long as CSS is not explicitly forbidden, you can try as follow :</p>
+          <p>
+            <pre>
+              <code class="language-css">
+img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+              </code>
+            </pre>
+          </p>
+
+          <h3 class="h5 mt-4">3.2 Target specific image with URL hash</h3>
+          <p>
+            <pre>
+              <code class="language-markdown">
+![img](/img/any.jpg#center)
+              </code>
+            </pre>            
+          </p>
+          <p>
+            <pre>
+              <code class="language-css">
+img[src*='#center'] {
+    display: block;
+    margin: auto;
+}
+              </code>
+            </pre>            
+          </p>
+
+          <h2>A few words about Markdown</h2>
+          <p>
+            For any markup that does not exist in the Markdown-defined syntax, you can just use HTML itself. There is no need to indicate or show that you’re switching from Markdown to HTML; you just use the usual tags. There is no order in which you can actually use the tag. You start either by Markdown, or HTML.
+          </p>
+          <p>
+            Note that Markdown formatting syntax will not be processed inside an HTML tag. For example, you can't use Markdown-style **bold** inside an HTML block.
+          </p>
+
+          <h2>Credits</h2>
+          <ul>
+            <li>
+              <a href="https://stackoverflow.com/a/12091563/2595513" target="_blank">https://stackoverflow.com/a/12091563/2595513</a>
+            </li>
+            <li>
+              <a href="https://stackoverflow.com/a/62383408/2595513" target="_blank">https://stackoverflow.com/a/62383408/2595513</a>
+            </li>
+            <li>
+              <a href="https://daringfireball.net/projects/markdown/syntax" target="_blank">https://daringfireball.net/projects/markdown/syntax</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-lg-8 mx-auto">
+        {% include "partials/end_of_article.html" %}
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js" integrity="sha512-Pbb8o120v5/hN/a6LjF4N4Lxou+xYZ0QcVF8J6TWhBbHmctQWd8O6xTDmHpE/91OjPzCk4JRoiJsexHYg4SotQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  hljs.highlightAll();
+});
+</script>{% endblock %}

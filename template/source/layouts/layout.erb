@@ -1,15 +1,75 @@
+---
+title: "Bootiful Middleman"
+auth_pages:
+  - "Signup"
+  - "Login"
+  - "ForgotPassword"
+---
+
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>thoughtbot Middleman Template</title>
+    <meta charset="UTF-8">
+    <!-- Use title if it's in the page YAML frontmatter -->
+
+    <title><%= data.site.title || "Bootiful Middleman" %></title>
+
+    <!-- For Bootstrap responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="<%= data.site.SEO_keywords %>">
+    <meta name="description" content="{{ SEO_description }}">
+    <meta name="og:title" content="Bootiful | {{page_name}}">
+    <meta name="og:description" content="{{ SEO_description }}">
+    <meta name="og:image" content="https://res.cloudinary.com/bdavidxyz-com/image/upload/v1637305365/bootstrap/pages.png">
+    <meta name="og:url" content="<%= data.site.url %>">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjFweCIgaGVpZ2h0PSI1NXB4IiB2aWV3Qm94PSIwIDAgNjEgNTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICA8ZyBpZD0icnVieXNoYXBlMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxLjAwMDAwMCwgLTIzLjAwMDAwMCkiIGZpbGw9IiMxRTIwMjkiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSIjMDAwMDAwIj4KICAgICAgPHBvbHlnb24gaWQ9InJhaWxzbGlrZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTEuNTAwMDAwLCA1MS4wMDAwMDApIHJvdGF0ZSgtMTgwLjAwMDAwMCkgdHJhbnNsYXRlKC01MS41MDAwMDAsIC01MS4wMDAwMDApICIgcG9pbnRzPSI1MS41IDI0IDgxIDYxLjY4MzU3MzQgNjkuNzMyMDAyNyA3OCAzMy4yNjc5OTczIDc4IDIyIDYxLjY4MzU3MzQiPjwvcG9seWdvbj4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <%= stylesheet_link_tag "main" %>
+    <%= yield_content :stylesheets %>
+    <% if content_for? :styles %>
+      <style type="text/css">
+        <%= yield_content :main %>
+      </style>
+    <% end %>
+    <%= yield_content :head %>
+
+    <% if data.site.url %>
+      <link rel="canonical" href="<%= data.site.url %>" />
+    <% end %>
+
+    <%= partial "partials/analytics" %>
   </head>
-  <body>
+
+  <%# <body class="site {% if page_name in auth_pages %}bg-light{% endif %}"> %>
+  <body class="<%= page_classes %>">
+    <%# if data.site.auth_pages.map(&:auth_pages).include?(["Signup", "Login", "ForgotPassword"]) %>
+      <%= partial "partials/header" %>
+    <%# end %>
+
     <main role="main">
       <%= yield %>
     </main>
+    <%# <div class="main">
+      {% block content %}{% endblock %}
+    </div> %>
+
+    <% if data.site.auth_pages.empty? %>
+      <%= partial "partials/small_footer" %>
+    <% else %>
+      <%= partial "partials/footer.html" %>
+    <% end %>
+
+    <!-- Javascript -->
+    <%# <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script> %>
+    <%= javascript_include_tag 'main' %>
+    <%= javascript_include_tag 'bootstrap.bundle.min.js' %>
+    <%= yield_content :javascripts %>
+
   </body>
 </html>

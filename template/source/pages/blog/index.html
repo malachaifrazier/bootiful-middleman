@@ -1,0 +1,69 @@
+{% set page_name = 'Home' %}
+{% set SEO_description = 'A free and open-source Bootstrap v5 template' %}
+{% set SEO_keywords = 'Bootstrap, SCSS, Gulp, JavaScript' %}
+{% extends "layouts/site.html" %}
+{% block content %}
+<main>
+  <div class="bg-white">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center py-5">
+          <h1 style="word-break: break-word">A Bootiful Blog</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col col-lg-6 mx-auto">
+          <ul class="list-unstyled">
+            <li class="mb-5">
+              <div class="border-0 w-100 h-100 card btn rounded-lg p-3 d-flex flex-row align-items-center justify-content-between">
+                <a class="text-dark text-left p-4" href="/blog/nextjs-bootstrap" style="text-decoration: none;">
+                  <div class="mb-3">
+                    <h3 style="word-break: break-word">NextJS, Bootstrap 5 : an in-depth tutorial</h3>
+                  </div>
+                  <p class="fw-normal">Let's see how to make NextJS and Bootstrap 5 work together. First, we will use raw Bootstrap, then, an external lib to take advantage of componentization.</p>
+                  <p class="mb-0 text-primary">Read more</p>
+                </a>
+              </div>
+            </li>
+            <li class="mb-5">
+              <div class="border-0 w-100 h-100 card btn rounded-lg p-3 d-flex flex-row align-items-center justify-content-between">
+                <a class="text-dark text-left p-4" href="/blog/markdown-image-center" style="text-decoration: none;">
+                  <div class="mb-3">
+                    <h3 style="word-break: break-word">Markdown, center the image</h3>
+                  </div>
+                  <p class="fw-normal">The goal of this article is to help you to center an image in your markdown file, for example when you use a README.md file at the root of your open-source project, that browser will actually display as HTML.</p>
+                  <p class="mb-0 text-primary">Read more</p>
+                </a>
+              </div>
+            </li>
+            <li class="mb-5">
+              <div class="border-0 w-100 h-100 card btn rounded-lg p-3 d-flex flex-row align-items-center justify-content-between">
+                <a class="text-dark text-left p-4" href="/blog/npm-err-code-elifecycle" style="text-decoration: none;">
+                  <div class="mb-3">
+                    <h3 style="word-break: break-word">npm ERR! code ELIFECYCLE</h3>
+                  </div>
+                  <p class="fw-normal">The goal of this article is to help you to debug the annoying "npm ERR! code ELIFECYCLE". The initial message is quite cryptic, but the solution is simple and efficient. Let's see how.</p>
+                  <p class="mb-0 text-primary">Read more</p>
+                </a>
+              </div>
+            </li>
+            <li class="mb-5">
+              <div class="border-0 w-100 h-100 card btn rounded-lg p-3 d-flex flex-row align-items-center justify-content-between">
+                <a class="text-dark text-left p-4" href="/blog/simple-blog-article" style="text-decoration: none;">
+                  <div class="mb-3">
+                    <h3 style="word-break: break-word">A simple blog article</h3>
+                  </div>
+                  <p class="fw-normal">A simple blog article that is actually a full style test. How typography, code blocks, headings, blockquote, etc, will look like in your own blog articles. </p>
+                  <p class="mb-0 text-primary">Read more</p>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
