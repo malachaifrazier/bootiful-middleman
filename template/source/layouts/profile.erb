@@ -25,7 +25,8 @@
 
     {% include "partials/small_footer.html" %}
 
-    <script src="/js/all.js"></script>
+    <%= javascript_include_tag 'application' %>
+    <%= yield_content :javascripts %>
     {% block scripts %}{% endblock %}
   </body>
 </html>
