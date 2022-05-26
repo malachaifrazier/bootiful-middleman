@@ -8,5 +8,8 @@ gem "middleman-aria_current"
 gem "middleman-inline_svg"
 gem "middleman-autoprefixer"
 gem "middleman-minify-html"
-gem 'middleman-livereload'
+gem "middleman-livereload"
+# TODO: Fix middleman-pry
+# https://github.com/AndrewKvalheim/middleman-pry
+# gem "middleman-pry"
 gem "redcarpet"
