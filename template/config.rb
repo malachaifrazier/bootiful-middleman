@@ -3,9 +3,14 @@
 
 activate :aria_current
 activate :inline_svg
+# https://middlemanapp.com/advanced/pretty-urls/
+activate :directory_indexes
 activate :autoprefixer do |config|
   config.browsers = 'last 2 versions'
 end
+
+# Set time zone
+set :time_zone, 'America/Detroit'
 
 # Import custom libraries and helpers
 Dir['./*/*.rb'].each { |file| load file }
@@ -97,8 +102,19 @@ page '/*.txt',  layout: false
 #     which_fake_page: 'Rendering a fake page with a local variable'
 #   }
 # )
+[
+  "404", "about", "changelog", "login", "pricing", "privacy", "signup", "styleguide", "testimonials", "usecases"
+].each do |name|
+  page "/#{name}.html"
+end
 
+###
 # Helpers
+###
+
+# Automatic image dimensions on image_tag helper
+# activate :automatic_image_sizes
+
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods
 
@@ -107,6 +123,36 @@ page '/*.txt',  layout: false
 #     'Helping'
 #   end
 # end
+
+# Use sprockets for JS requires
+# activate :sprockets
+
+###
+## Blog settings
+###
+# activate :blog do |blog|
+#   blog.prefix = '/blog'
+#   blog.sources = '{year}-{month}-{day}-{title}.html'
+#   blog.permalink = '{year}/{month}/{day}/{title}.html'
+#   blog.taglink = 'tags/{tag}.html'
+#   blog.layout = 'article'
+#   blog.summary_separator = /(READMORE)/
+#   blog.summary_length = 250
+#   blog.year_link = '{year}.html'
+#   blog.month_link = '{year}/{month}.html'
+#   blog.day_link = '{year}/{month}/{day}.html'
+#   blog.default_extension = 'md'
+
+#   blog.tag_template = '/blog/tag.html'
+#   blog.calendar_template = '/blog/calendar.html'
+
+#   blog.paginate = true
+#   blog.per_page = 5
+#   blog.page_link = 'p{num}'
+# end
+
+# Setup blog feed
+# page '/blog/feed.xml'
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
