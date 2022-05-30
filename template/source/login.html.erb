@@ -1,14 +1,7 @@
-{% set page_name = 'Login' %}
-{% set SEO_description = 'A free and open-source Bootstrap v5 template' %} 
-{% set SEO_keywords = 'Bootstrap, SCSS, Gulp, JavaScript' %} 
-
-{% extends "layouts/site.html" %} 
-
-{% block content %}
 <header class="container pt-5 pb-3 flex-center flex-column">
-  <div class="toast position-absolute align-items-center text-white bg-danger border-0" 
-      role="alert" 
-      aria-live="assertive" 
+  <div class="toast position-absolute align-items-center text-white bg-danger border-0"
+      role="alert"
+      aria-live="assertive"
       aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body">
@@ -16,7 +9,7 @@
       </div>
       <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-  </div> 
+  </div>
   <a class="navbar-brand me-3" href="/">
     <svg width="160px" height="60px" viewBox="0 0 272 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -38,12 +31,12 @@
         <div class="position-relative">
           <label class="form-label" for="email">Email * <small class="text-muted">(Demo: empty value fails, any value works)</small></label>
           <input class="form-control" type="text" name="email" id="email">
-          <div class="invalid-feedback mt-0 position-absolute">Please provide an email</div>          
+          <div class="invalid-feedback mt-0 position-absolute">Please provide an email</div>
         </div>
         <div class="mt-4">
           <label class="form-label" for="password">Password *</label>
           <input class="form-control" type="password" name="password" id="password">
-          <div class="invalid-feedback mt-0 position-absolute">Please provide a password</div>          
+          <div class="invalid-feedback mt-0 position-absolute">Please provide a password</div>
         </div>
         <div class="mt-4">
           <input type="submit" name="commit" value="Continue" class="mt-4 btn btn-dark w-100" data-disable-with="Continue">
@@ -60,24 +53,23 @@
     <p class="text-muted text-sm mt-3">Don't have an account yet ? <a class="fw-bold" href="/signup">Sign up</a></p>
   </small>
 </div>
-{% endblock %}
 
-{% block scripts %}
 <script>
-    if (bootiful.urlParam('email') === '' || bootiful.urlParam('password') === '') {
-        bootiful.displayToasts()
-        if (bootiful.urlParam('email') === '') {
-          document.getElementById('email').value = ' '
-          document.getElementById('email').classList.add("is-invalid")
-        }
-        if (bootiful.urlParam('password') === '') {
-          document.getElementById('password').value = ' '
-          document.getElementById('password').classList.add("is-invalid")
-        }
-      } else {
-        if (bootiful.urlParam('commit') === 'Continue') {
-          window.location.href = '/admin?successful_login=true'
-        }
-      }
+if (bootiful.urlParam('email') === '' || bootiful.urlParam('password') === '') {
+  bootiful.displayToasts()
+  if (bootiful.urlParam('email') === '') {
+    document.getElementById('email').value = ' '
+    document.getElementById('email').classList.add("is-invalid")
+  }
+  if (bootiful.urlParam('password') === '') {
+    document.getElementById('password').value = ' '
+    document.getElementById('password').classList.add("is-invalid")
+  }
+} else {
+  if (bootiful.urlParam('commit') === 'Continue') {
+    window.location.href = '/admin?successful_login=true'
+  }
+}
+
+
 </script>
-{% endblock %}

@@ -1,10 +1,3 @@
-{% set page_name = 'Home' %}
-{% set SEO_description = 'A free and open-source Bootstrap v5 template' %} 
-{% set SEO_keywords = 'Bootstrap, SCSS, Gulp, JavaScript' %} 
-
-{% extends "layouts/site.html" %} 
-
-{% block content %}
 <div class="container article" style="max-width: 1140px;">
   <div class="row justify-content-center py-2">
     <div class="col-12 my-5 py-5">
@@ -170,8 +163,6 @@
     </div>
   </div>
 
-  {% include "partials/bottom_cta.html" %}
+  <%= partial "partials/bottom_cta" %>
 
 </div>
-
-{% endblock %}
