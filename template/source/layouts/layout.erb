@@ -7,7 +7,7 @@ auth_pages:
 ---
 
 <!DOCTYPE html>
-<html lang="<%= I18n.locale %>">
+<html lang=<%= data.site.language %>>
   <head>
     <meta charset="UTF-8">
     <!-- Use title if it's in the page YAML frontmatter -->
@@ -47,7 +47,7 @@ auth_pages:
   </head>
 
   <%# <body class="site {% if page_name in auth_pages %}bg-light{% endif %}"> %>
-  <body class="<%= page_classes %>">
+  <body class="site <%= page_classes %>">
     <%# if data.site.auth_pages.map(&:auth_pages).include?(["Signup", "Login", "ForgotPassword"]) %>
       <%= partial "partials/header" %>
     <%# end %>
