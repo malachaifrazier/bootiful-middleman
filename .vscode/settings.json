@@ -1,0 +1,6 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-meta.json": "file:///Users/malachai/Desktop/Projects/bootiful-middleman/template/data/site.yaml",
+    "https://json.schemastore.org/sourcehut-build-0.65.0.json": "file:///Users/malachai/Desktop/Projects/bootiful-middleman/template/data/site.yml"
+  }
+}
